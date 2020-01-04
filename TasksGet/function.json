@@ -6,14 +6,22 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get",
-        "post"
+        "get"
       ]
     },
     {
       "type": "http",
       "direction": "out",
       "name": "res"
+    },
+    {
+      "name": "taskDocument",
+      "type": "cosmosDB",
+      "databaseName": "tododb",
+      "collectionName": "Tasks",
+      "createIfNotExists": true,
+      "connectionStringSetting": "CosmosDB",
+      "direction": "in"
     }
   ]
 }
