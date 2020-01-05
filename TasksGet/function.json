@@ -15,7 +15,7 @@
       "name": "res"
     },
     {
-      "name": "taskDocument",
+      "name": "productDocument",
       "type": "cosmosDB",
       "databaseName": "tododb",
       "collectionName": "Tasks",

@@ -13,6 +13,15 @@
       "type": "http",
       "direction": "out",
       "name": "res"
+    },
+    {
+      "name": "productDocument",
+      "type": "cosmosDB",
+      "databaseName": "tododb",
+      "collectionName": "Tasks",
+      "createIfNotExists": true,
+      "connectionStringSetting": "CosmosDB",
+      "direction": "out"
     }
   ]
 }

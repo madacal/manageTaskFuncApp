@@ -1,16 +1,20 @@
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+module.exports = function (context, req) {
+    const {
+        id,
+        name
+    } = req.body;
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
+    // or you could limit the in to only be one doc
+    const foundDoc = context.bindings.productDocumentsIn.find(p => p.id == id);
+
+    // do the update
+    context.bindings.productDocument = foundDoc;
+    context.bindings.productDocument.name = name;
+
+    context.done();
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: "Record updated"
+    };
 };
